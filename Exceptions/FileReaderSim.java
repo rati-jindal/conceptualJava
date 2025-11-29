@@ -5,12 +5,13 @@ import java.io.IOException;
 public class FileReaderSim {
 
     void readFile(String fileName) throws IOException {
-        if (fileName.equals("confidential.txt")){
+        if (fileName.equals("confidential.txt")) {
             throw new IOException("Access Denied");
 //          Note: Because you threw a Checked Exception, Java will yell at you. You must fix the method signature: void readFile(...) throws IOException
         }
     }
-    void parseData(String data){
+
+    void parseData(String data) {
         System.out.println(data.length());
 
     }
@@ -18,18 +19,17 @@ public class FileReaderSim {
     public static void main(String[] args) {
         FileReaderSim obj = new FileReaderSim();
 
-        try{
+        try {
             obj.readFile("confidential.txt");
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             System.out.println("Closing File Resources....");
         }
 
-        try{
+        try {
             obj.parseData(null);
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
 
